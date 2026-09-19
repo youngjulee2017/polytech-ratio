@@ -53,7 +53,7 @@
             top: 0;
             z-index: 2;
         }
-        /* 모바일에서 학과명이 잘 보이도록 2번째 열 고정 */
+        /* 학과명 열 좌측 고정 (모바일 친화) */
         th:nth-child(2), td.dept {
             position: sticky;
             left: 0;
@@ -68,6 +68,10 @@
             background: #1e3a8a;
             z-index: 3;
         }
+        .col-total-cap {
+            font-weight: 600;
+            background-color: #f8fafc;
+        }
         .highlight {
             color: #d90429;
             font-weight: 700;
@@ -76,7 +80,7 @@
             background-color: #f1f5f9 !important;
             font-weight: 600;
         }
-        .subtotal-row td.dept {
+        .subtotal-row td.dept, .subtotal-row td.col-total-cap {
             background-color: #f1f5f9 !important;
         }
         .total-row {
@@ -84,7 +88,7 @@
             font-weight: 700;
             font-size: 14px;
         }
-        .total-row td.dept {
+        .total-row td.dept, .total-row td.col-total-cap {
             background-color: #e2e8f0 !important;
         }
     </style>
@@ -98,10 +102,11 @@
                 <tr>
                     <th>캠퍼스</th>
                     <th>모집단위</th>
-                    <th>모집(일반)</th>
-                    <th>지원(일반)</th>
-                    <th>정원외 모집</th>
-                    <th>정원외 지원</th>
+                    <th>총모집인원</th>
+                    <th>모집인원(일반)</th>
+                    <th>지원인원(일반)</th>
+                    <th>정원외 특별전형 모집인원</th>
+                    <th>정원외 특별전형 지원인원</th>
                     <th>경쟁률</th>
                 </tr>
             </thead>
@@ -110,6 +115,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">기계설계과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>30</td>
         <td>8</td>
@@ -120,6 +126,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">메카트로닉스과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>33</td>
         <td>8</td>
@@ -130,6 +137,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">메타버스콘텐츠과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>5</td>
         <td>3</td>
@@ -140,6 +148,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">미래형자동차과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>55</td>
         <td>8</td>
@@ -150,6 +159,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">산업안전공학과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>23</td>
         <td>3</td>
@@ -160,6 +170,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">스마트정보통신과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>6</td>
         <td>3</td>
@@ -170,6 +181,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">시각디자인과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>11</td>
         <td>8</td>
@@ -180,6 +192,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">인공지능소프트웨어과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>7</td>
         <td>3</td>
@@ -190,6 +203,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">전기공학과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>115</td>
         <td>8</td>
@@ -200,6 +214,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">지능형에너지설비과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>31</td>
         <td>8</td>
@@ -210,6 +225,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">친환경산업디자인과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>6</td>
         <td>3</td>
@@ -220,6 +236,7 @@
     <tr>
         <td>서울정수</td>
         <td class="dept">클라우드컴퓨팅과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>6</td>
         <td>3</td>
@@ -230,6 +247,7 @@
     <tr class="subtotal-row">
         <td>서울정수</td>
         <td class="dept">소계</td>
+        <td class="col-total-cap">426</td>
         <td>360</td>
         <td>328</td>
         <td>66</td>
@@ -240,6 +258,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">디지털콘텐츠과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>18</td>
         <td>8</td>
@@ -250,6 +269,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">보건의료정보과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>11</td>
         <td>3</td>
@@ -260,6 +280,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">빅데이터소프트웨어공학과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>6</td>
         <td>3</td>
@@ -270,6 +291,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">사이버보안과</td>
+        <td class="col-total-cap">23</td>
         <td>20</td>
         <td>4</td>
         <td>3</td>
@@ -280,6 +302,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">주얼리디자인과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>17</td>
         <td>8</td>
@@ -290,6 +313,7 @@
     <tr>
         <td>서울강서</td>
         <td class="dept">패션디자인과</td>
+        <td class="col-total-cap">48</td>
         <td>40</td>
         <td>14</td>
         <td>8</td>
@@ -300,6 +324,7 @@
     <tr class="subtotal-row">
         <td>서울강서</td>
         <td class="dept">소계</td>
+        <td class="col-total-cap">213</td>
         <td>180</td>
         <td>70</td>
         <td>33</td>
@@ -310,6 +335,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">AI의약바이오과</td>
+        <td class="col-total-cap">24</td>
         <td>20</td>
         <td>8</td>
         <td>4</td>
@@ -320,6 +346,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">AI자동화과</td>
+        <td class="col-total-cap">24</td>
         <td>20</td>
         <td>8</td>
         <td>4</td>
@@ -330,6 +357,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">기계정비과</td>
+        <td class="col-total-cap">24</td>
         <td>20</td>
         <td>29</td>
         <td>4</td>
@@ -340,6 +368,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">반도체공정과</td>
+        <td class="col-total-cap">22</td>
         <td>20</td>
         <td>39</td>
         <td>2</td>
@@ -350,6 +379,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">반도체설계과</td>
+        <td class="col-total-cap">22</td>
         <td>20</td>
         <td>8</td>
         <td>2</td>
@@ -360,6 +390,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">반도체시스템과</td>
+        <td class="col-total-cap">24</td>
         <td>20</td>
         <td>38</td>
         <td>4</td>
@@ -370,6 +401,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">반도체융합기계과</td>
+        <td class="col-total-cap">22</td>
         <td>20</td>
         <td>10</td>
         <td>2</td>
@@ -380,6 +412,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">인공지능소프트웨어과</td>
+        <td class="col-total-cap">24</td>
         <td>20</td>
         <td>5</td>
         <td>4</td>
@@ -390,6 +423,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">전기과</td>
+        <td class="col-total-cap">56</td>
         <td>42</td>
         <td>87</td>
         <td>14</td>
@@ -400,6 +434,7 @@
     <tr>
         <td>성남</td>
         <td class="dept">전기과(야간)</td>
+        <td class="col-total-cap">23</td>
         <td>19</td>
         <td>11</td>
         <td>4</td>
@@ -410,6 +445,7 @@
     <tr class="subtotal-row">
         <td>성남</td>
         <td class="dept">소계</td>
+        <td class="col-total-cap">265</td>
         <td>221</td>
         <td>243</td>
         <td>44</td>
@@ -420,6 +456,7 @@
     <tr>
         <td>제주</td>
         <td class="dept">AI콘텐츠과</td>
+        <td class="col-total-cap">22</td>
         <td>19</td>
         <td>11</td>
         <td>3</td>
@@ -430,6 +467,7 @@
     <tr class="subtotal-row">
         <td>제주</td>
         <td class="dept">소계</td>
+        <td class="col-total-cap">22</td>
         <td>19</td>
         <td>11</td>
         <td>3</td>
@@ -440,6 +478,7 @@
     <tr class="total-row">
         <td>전체</td>
         <td class="dept">총계</td>
+        <td class="col-total-cap">926</td>
         <td>780</td>
         <td>652</td>
         <td>146</td>

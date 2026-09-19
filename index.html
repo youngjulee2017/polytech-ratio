@@ -2,82 +2,106 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>한국폴리텍I대학 전 캠퍼스 경쟁률 집계</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
-            padding: 24px;
+            margin: 0;
+            padding: 12px;
             background: #f1f3f5;
             color: #212529;
+            -webkit-text-size-adjust: 100%;
         }
         h2 {
             text-align: center;
             color: #1a365d;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            margin: 12px 0 16px 0;
+        }
+        .tip {
+            text-align: center;
+            font-size: 11px;
+            color: #6c757d;
+            margin-bottom: 8px;
         }
         .table-container {
-            max-width: 1050px;
-            margin: 0 auto;
+            width: 100%;
             background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: center;
             white-space: nowrap;
+            font-size: 13px;
         }
         th, td {
-            padding: 11px 12px;
+            padding: 10px 8px;
             border-bottom: 1px solid #e9ecef;
-            font-size: 14px;
         }
         th {
             background: #1e3a8a;
             color: #ffffff;
             font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 2;
         }
-        tr:hover {
-            background: #f8fafc;
-        }
-        .dept {
+        /* 모바일에서 학과명이 잘 보이도록 2번째 열 고정 */
+        th:nth-child(2), td.dept {
+            position: sticky;
+            left: 0;
+            background: #ffffff;
+            z-index: 1;
             text-align: left;
-            padding-left: 18px;
-            font-weight: 500;
+            padding-left: 12px;
+            font-weight: 600;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+        }
+        th:nth-child(2) {
+            background: #1e3a8a;
+            z-index: 3;
         }
         .highlight {
             color: #d90429;
             font-weight: 700;
         }
         .subtotal-row {
-            background-color: #f1f5f9;
+            background-color: #f1f5f9 !important;
             font-weight: 600;
-            border-top: 2px solid #cbd5e1;
-            border-bottom: 2px solid #cbd5e1;
+        }
+        .subtotal-row td.dept {
+            background-color: #f1f5f9 !important;
         }
         .total-row {
-            background-color: #e2e8f0;
+            background-color: #e2e8f0 !important;
             font-weight: 700;
-            border-top: 2px solid #94a3b8;
-            font-size: 15px;
+            font-size: 14px;
+        }
+        .total-row td.dept {
+            background-color: #e2e8f0 !important;
         }
     </style>
 </head>
 <body>
     <h2>📊 한국폴리텍I대학 캠퍼스별 경쟁률 집계</h2>
+    <div class="tip">👉 모바일에서는 표를 좌우로 밀어서(스크롤) 확인하실 수 있습니다.</div>
     <div class="table-container">
         <table>
             <thead>
                 <tr>
                     <th>캠퍼스</th>
                     <th>모집단위</th>
-                    <th>모집인원(일반)</th>
-                    <th>지원인원(일반)</th>
-                    <th>정원외 특별전형 모집인원</th>
-                    <th>정원외 특별전형 지원인원</th>
+                    <th>모집(일반)</th>
+                    <th>지원(일반)</th>
+                    <th>정원외 모집</th>
+                    <th>정원외 지원</th>
                     <th>경쟁률</th>
                 </tr>
             </thead>
